@@ -1,5 +1,21 @@
 {% extends 'core/base.html' %}
 {%block title%}Welcome{%endblock%}
+
 {%block content%}
-index
+    <div class="grid grid-cols-10">
+        <div class="col-span-3 py-6 px-8 font-bold bg-purple-700 text-white">Name</div>
+        <div class="col-span-6 py-6 px-8 font-bold bg-purple-700 text-white">Url</div>
+        <div class="col-span-1 py-6 px-8 font-bold bg-purple-700 text-white">Rating</div>
+    </div>
+    {%for link in links%}
+    <div class="grid grid-cols-10">
+        <div class="col-span-3 py-3 px-8">
+            <a href="{%url 'link:detail' link.pk %}">
+                 {{link.name}}
+            </a>
+        </div>
+        <div class="col-span-6 py-3 px-8">{{link.url}}</div >
+        <div class="col-span-1 py-3 px-8">{{link.get_rating}}</div>
+    </div>
+    {%endfor%}
 {%endblock%}

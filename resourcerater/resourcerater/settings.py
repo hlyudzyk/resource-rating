@@ -21,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-6&sf69i#f45gdso8#wbt$78jwd4+6o*8-nse@)dict+p4+)lxa'
-
+LOGIN_REDIRECT_URL = 'core:index'
+LOGIN_URL = 'user:login'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'user',
+    'link',
 
 ]
 

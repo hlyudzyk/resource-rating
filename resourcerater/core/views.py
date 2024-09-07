@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from link.models import Link
+
 
 def index(request):
-    return render(request, 'core/index.html')
+    links = Link.objects.all()
+    return render(request, 'core/index.html',{'links':links})

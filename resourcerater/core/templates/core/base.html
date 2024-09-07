@@ -10,12 +10,18 @@
       <nav class="py-6 px-12 flex items-center justify-between bg-purple-700">
           <a href="{%url 'core:index'%}" class="text-2xl text-white font-bold">LinkRater</a>
           <div class="space-x-4">
-              <a href="#" class="py-4 px-8 bg-purple-900 text-white">
+              {%if request.user.is_authenticated%}
+                  <a href="{%url 'link:add-link'%}" class="py-4 px-8 bg-purple-900 text-white">
+                      Add link
+                  </a>
+              {%else%}
+              <a href="{%url 'user:login'%}" class="py-4 px-8 bg-purple-900 text-white">
                   Log in
               </a>
-              <a href="#" class="py-4 px-8 bg-purple-500 text-white">
-                  Log in
+              <a href="{%url 'user:signup' %}" class="py-4 px-8 bg-purple-500 text-white">
+                  Sign up
               </a>
+              {%endif%}
           </div>
       </nav>
       <main class="py-6 px-12">
